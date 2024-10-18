@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bazar Novias y XV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <header>
+        <h1>Bazar Novias y XV</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Tabla de Tallas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="banner.jpg" alt="Banner Principal">
+        </section>
+        <section class="categorias">
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <img src="novias.jpg" alt="Vestidos de Novia"><br>
+                    <!-- Botón de Novias -->
+                    <a href="#" class="categoria-button">Novias</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="xv.jpg" alt="Vestidos de XV"><br>
+                    <!-- Botón de XV -->
+                    <a href="#" class="categoria-button">XV</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <!--<section class="categorias">
+            <div class="categoria">
+                <img src="novias.jpg" alt="Vestidos de Novia">
+                <h2>Novias</h2>
+            </div>
+            <div class="categoria">
+                <img src="xv.jpg" alt="Vestidos de XV">
+                <h2>XV</h2>
+            </div>
+        </section>-->
+
+        <!--<section class="destacados">
+            <h2>Productos Destacados</h2>
+            <div class="producto1">
+                <img src="producto1.jpg" alt="Producto 1">
+                <p>Descripción del producto 1</p>
+                <p>$7000</p>
+            </div>
+            <div class="producto2">
+                <img src="producto2.jpg" alt="Producto 3">
+                <p>Descripción del producto</p>
+                <p>$10000</p>
+            </div>
+            <div class="producto3">
+                <img src="producto3.jpg" alt="Producto 3">
+                <p>Descripción del producto 1</p>
+                <p>$8000</p>
+            </div>
+            <div class="producto4">
+                <img src="producto4.jpg" alt="Producto 4">
+                <p>Descripción del producto 1</p>
+                <p>$9000</p>
+            </div>-->
+            <!-- Repetir para más productos -->
+
+            <section class="destacados">
+                <h2 class="text-center">Productos Destacados</h2>
+                <!-- Carrusel de productos destacados -->
+                <div id="carouselDestacados" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-6 producto">
+                                    <img src="producto1.jpg" alt="Producto 1">
+                                    <p><strong>Vestido de novia clásico</strong></p>
+                                    <p>$7000</p>
+                                </div>
+                                <div class="col-md-6 producto">
+                                    <img src="producto2.jpg" alt="Producto 2">
+                                    <p><strong>Vestido de quinceañera rosa</strong></p>
+                                    <p>$10000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-6 producto">
+                                    <img src="producto3.jpg" alt="Producto 3">
+                                    <p><strong>Vestido moderno de novia</strong></p>
+                                    <p>$8000</p>
+                                </div>
+                                <div class="col-md-6 producto">
+                                    <img src="producto4.jpg" alt="Producto 4">
+                                    <p><strong>Vestido de quinceañera azul</strong></p>
+                                    <p>$9000</p>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Puedes agregar más productos aquí -->
+                </div>
+
+            <!-- Controles de navegación del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacados" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Bazar Novias y XV. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
