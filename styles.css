@@ -38,7 +38,7 @@ nav {
 
 .nav-menu li a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     color: #ffffff;
 }
 nav ul {
@@ -117,7 +117,7 @@ h1 {
 
 /*limitar el tamaño máximo de las imágenes del carrusel */
 .carousel-inner {
-    max-width: 800px; /* Ajusta según el tamaño máximo que desees para el carrusel */
+    max-width: 600px; /* Ajusta según el tamaño máximo que desees para el carrusel */
     max-height: 600px; /* Ajusta según el tamaño máximo que desees */
     margin: 0 auto; /* Centrar el carrusel en la página */
 }
@@ -151,8 +151,30 @@ h1 {
 }
 .carousel-item .producto p {
     margin: 10px 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
+
+/* Estilo para las flechas del carrusel (anterior y siguiente) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+    border-radius: 50%; /* Redondear los bordes */
+    width: 250px; /* Ajustar el tamaño */
+    height: 250px;
+}
+
+/* Reducir aún más la transparencia */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Aumenta la opacidad al pasar el cursor */
+}
+
+/*Para pantallas pequeñas */
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1 !important; /* para mantenerlas siempre visibles */
+}
+
 /* Botones para "Novias" y "XV" */
 .categoria-button {
     display: inline-block;
@@ -165,6 +187,7 @@ h1 {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+    font-size: 15px;
     border-radius: 5px;
 }
 .categoria-button:hover {
