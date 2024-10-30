@@ -205,3 +205,148 @@ h1 {
     object-fit: cover;  
     object-position: center; 
 }
+
+/*ESTILO PARA EL LOGIN*/
+.background-login{
+    background-color: #535353;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+}
+/* Contenedor del login con transparencia */
+.login-container {
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro con transparencia */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%; /* Ajuste para pantallas pequeñas */
+    max-width: 300px; /* Limita el tamaño en pantallas grandes */
+    color: white;
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+
+/* Título */
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Inputs de usuario y contraseña */
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+
+/* Botón de iniciar sesión */
+.login-container button {
+    font-family: 'Bebas Neue', sans-serif;
+    width: 100%;
+    padding: 12px;
+    background-color: #e50914; /* Color rojo de Netflix */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Opciones adicionales (checkbox y enlaces) */
+.additional-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+
+.additional-options a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+/*eso es para que tenga una linea abajo en donde dice "Olvidaste la contra"*/
+.additional-options a:hover {
+    text-decoration: underline;
+}
+
+
+/* Texto de suscripción */
+.login-container p {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+
+.login-container p a {
+    color: white;
+    text-decoration: none;
+}
+
+/*eso es para que tenga una linea abajo en donde dice "ingresa ahora"*/
+.login-container p a:hover {
+    text-decoration: underline;
+}
+/*Configuracion para el mensaje de error*/
+.error {
+    font-family: 'Bebas Neue', sans-serif;
+    color: red;
+    margin-top: 10px;
+}
+ /* Ajusta el contenedor de login */
+ .login-container {
+    width: 90%; /* Haz que el contenedor ocupe más espacio horizontal */
+    padding: 20px; /* Reduce el padding para adaptarse a pantallas pequeñas */
+}
+
+
+/* Ajuste del título */
+.login-container h1 {
+    font-size: 20px; /* Reduce el tamaño del título */
+}
+
+
+/* Tamaño de los inputs y botón */
+input[type="text"],
+input[type="password"],
+button {
+    padding: 10px; /* Ajusta el tamaño del padding para inputs y botón */
+    font-size: 14px; /* Reduce un poco el tamaño de fuente */
+}
+
+
+/* Opciones adicionales */
+.additional-options {
+    flex-direction: column; /* Coloca el checkbox y el enlace uno debajo del otro */
+    align-items: flex-start;
+    gap: 10px; /* Añade un poco de espacio entre elementos */
+}
+/*esto es para que el cuadro de login no se pegue a las paredes*/
+@media (max-width: 600px) {
+.login-container {
+    margin-left: 0; /* Sin margen a la izquierda */
+    margin-right: 40px; /* Margen solo a la derecha */
+}
+}
