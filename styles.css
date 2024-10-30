@@ -260,7 +260,7 @@ input[type="password"] {
     font-family: 'Bebas Neue', sans-serif;
     width: 100%;
     padding: 12px;
-    background-color: #e50914; /* Color rojo de Netflix */
+    background-color: #ed5555; /* Color de la pagina xd */
     color: white;
     border: none;
     border-radius: 4px;
@@ -312,7 +312,7 @@ input[type="password"] {
 /*Configuracion para el mensaje de error*/
 .error {
     font-family: 'Bebas Neue', sans-serif;
-    color: red;
+    color: #ed5555;
     margin-top: 10px;
 }
  /* Ajusta el contenedor de login */

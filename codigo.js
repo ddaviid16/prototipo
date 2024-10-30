@@ -7,9 +7,9 @@ function InicioDeSesion(){
     const passwordUser = document.getElementById("password").value;
     const errorMsg = document.getElementById('error-msg');
  if(username === User && passwordUser == Password){
-   //si es igual se le rederige a la pagina principal
+   //si es igual se le redirige a la pagina principal
    errorMsg.textContent = "";//borramos mensaje de error
-   alert("inicio de sesion existoso. redirigiendo a la pagina mas vergas");
+   alert("inicio de sesion existoso. Redirigiendo al inicio.");
    window.location.href = "index.html";
  }
  else {
