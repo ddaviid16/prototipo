@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="stylesProd.css">
+</head>
+<body>
+    <class="page-productos">
+        <header>
+            <div class="header-content">
+                <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
+                <h1>Bazar Novias y XV</h1>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <div class="DisenoMenuDespegable">
+                    <li><a href="productos.html">Productos</a></li>
+                    <div class="VentanaAbajOtros-content">
+                        <a href="productos.html#novias">Novias</a>
+                        <a href="productos.html#xv">XV</a>
+                    </div>
+                </div>
+                    <li><a href="#">Tabla de Tallas</a></li>
+                </ul>
+            </nav>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+                <button onclick="RedirigirLogin()">Iniciar Sesion</button>
+            </div>
+        </header>
+    <!--navegación-->
+        <nav>
+            <ul>
+                <li><a href="#" onclick="filterCategory('all')">Todos</a></li>
+                <li><a href="#" onclick="filterCategory('XV')">XV</a></li>
+                <li><a href="#" onclick="filterCategory('Novias')">Novias</a></li>
+            </ul>
+        </nav>
+
+    <!--búsqueda-->
+    <section class="filter-section">
+        <label for="search">Buscar: </label>
+        <input type="text" id="search" placeholder="Buscar productos..." oninput="filterProducts()">
+        <select id="size-filter" onchange="filterProducts()">
+            <option value="">Talla</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
+        <select id="color-filter" onchange="filterProducts()">
+            <option value="">Color</option>
+            <option value="Esmeralda">Esmeralda</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Oro">Oro</option>
+        </select>
+        <select id="category-filter" onchange="filterProducts()">
+            <option value="">Categoría</option>
+            <option value="XV">XV</option>
+            <option value="Novias">Novias</option>
+        </select>
+    </section>
+
+    <!--galería-->
+<section class="product-gallery" id="product-gallery">
+    <!--´roducto 1-->
+    <div class="product-item">
+        <img src="imagenes/producto1.jpg" alt="Producto 1">
+        <h3>Vestido esmeralda de XV</h3>
+        <p>Categoría: XV</p>
+        <p>Talla: M</p>
+        <p>Color: Esmeralda</p>
+    </div>
+
+    <!--producto 2-->
+    <div class="product-item">
+        <img src="imagenes/producto3.jpg" alt="Producto 2">
+        <h3>Vestido Moderno de XV</h3>
+        <p>$6000</p>
+        <p>Categoría: XV</p>
+        <p>Talla: S</p>
+        <p>Color: Rojo</p>
+    </div>
+
+    <!--producto 3-->
+    <div class="product-item">
+        <img src="imagenes/producto2.jpg" alt="Producto 3">
+        <h3>Vestido de Novia Moderno</h3>
+        <p>Categoría: Novias</p>
+        <p>Talla: L</p>
+        <p>Color: Blanco</p>
+    </div>
+
+    <!--producto 4-->
+    <div class="product-item">
+        <img src="imagenes/producto4.jpg" alt="Producto 4">
+        <h3>Vestido de XV Oro</h3>
+        <p>Categoría: XV</p>
+        <p>Talla: M</p>
+        <p>Color: Oro</p>
+    </div>
+</section>
+
+    <!--paginación-->
+    <div class="pagination">
+        <button onclick="prevPage()">Anterior</button>
+        <span id="page-number">1</span>
+        <button onclick="nextPage()">Siguiente</button>
+    </div>
+
+    <script src="codigoProd.js"></script>
+    <footer>
+        <p>© 2024 Bazar Novias y XV. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="codigo.js"></script>
+</body>
+</html>
