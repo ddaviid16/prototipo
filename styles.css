@@ -75,13 +75,13 @@ h1 {
     margin: 0;
 }
 /* Estilos para los botones de buscar, carrito y usuario */
-.header-actions {
+.header-actions{
     display: flex;
     align-items: center;
 }
 
 .action-btn {
-    margin-left: 20px;
+    margin-right: 20px;
     font-size: 24px;
     color: #333;
     text-decoration: none;
@@ -193,19 +193,51 @@ h1 {
 .categoria-button:hover {
     background-color: #555;
 }
-
-/*.carousel-inner {
-    max-width: 600px;   
-    max-height: 400px;  
-    margin: 0 auto;  
-}*/
-/*.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  
-    object-position: center; 
+/* Contenedor del menú desplegable */
+.DisenoMenuDespegable {
+    position: relative;
+    display: inline-block;
 }
 
+/* Botón de acción */
+.action-btn {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Menú desplegable oculto por defecto */
+.VentanaAbajOtros-content {
+    display: none; 
+    position: absolute;
+    top: 40px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #333;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+/* Estilos de los enlaces dentro del menú desplegable */
+.VentanaAbajOtros-content a {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Efecto hover para los enlaces del menú */
+.VentanaAbajOtros-content a:hover {
+    background-color: #575757;
+}
+
+/* Mostrar el menú cuando el usuario pasa el ratón sobre el contenedor */
+.DisenoMenuDespegable:hover .VentanaAbajOtros-content {
+    display: block;
+}
 /*ESTILO PARA EL LOGIN*/
 .background-login{
     background-color: #535353;
@@ -268,6 +300,20 @@ input[type="password"] {
     font-size: 16px;
     font-weight: bold;
     margin-top: 20px;
+}
+
+.header-actions button{
+    font-family: 'Bebas Neue', sans-serif;
+    width: 80%;
+    padding: 12px;
+    background-color: #ed5555; /* Color de la pagina xd */
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
 /* Opciones adicionales (checkbox y enlaces) */
@@ -342,6 +388,45 @@ button {
     flex-direction: column; /* Coloca el checkbox y el enlace uno debajo del otro */
     align-items: flex-start;
     gap: 10px; /* Añade un poco de espacio entre elementos */
+}
+
+
+/* Estilos del contenedor del menú desplegable 2 */
+.DisenoMenuDespegable2 {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilos para el menú desplegable oculto */
+.VentanaAbajOtros-content2 {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Coloca el menú justo debajo del enlace "Otros" */
+    left: -120px; /* Ajusta el menú un poco hacia la izquierda */
+    background-color: #333; /* Fondo oscuro */
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+/* Estilos de los enlaces dentro del menú desplegable */
+.VentanaAbajOtros-content2 a {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Efecto hover para los enlaces del menú */
+.VentanaAbajOtros-content2 a:hover {
+    background-color: #575757;
+}
+
+/* Mostrar el menú cuando el usuario pase el ratón sobre el contenedor */
+.DisenoMenuDespegable2:hover .VentanaAbajOtros-content2 {
+    display: block;
 }
 /*esto es para que el cuadro de login no se pegue a las paredes*/
 @media (max-width: 600px) {

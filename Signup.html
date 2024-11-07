@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body class="background-login">
+    <div class="login-container">
+        <h1>Crear Cuenta</h1>
+        <input type="text" id="signup-user" placeholder="Ingresa un usuario" required>
+        <input type="password" id="signup-password" placeholder="Ingresa una contraseña" required>
+        <input type="text" id="security-code" placeholder="Ingresa un código de seguridad" required>
+        <button type="button" onclick="registrarUsuario()">Registrar</button>
+        <div id="error-msg" class="error"></div>
+    </div>
+    <script src="codigo.js"></script>
+</body>
+</html>
