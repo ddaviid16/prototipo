@@ -31,7 +31,12 @@
         <div class="header-actions">
             <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
             <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
-            <button onclick="RedirigirLogin()">Iniciar Sesion</button>
+            <div class="DisenoMenuDespegable2">
+                <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
+                <div id="menudespegable2" class="VentanaAbajOtros-content2">
+                    <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
+                    <a onclick="CerrarSesion()">Cerrar sesión</a>
+                </div>
         </div>
     </header>
 
