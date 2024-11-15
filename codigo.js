@@ -126,3 +126,14 @@ function RedirigirLogin() {
     }
   });
   
+
+
+
+  
+  function mostrarVentanaLogin() {
+    document.getElementById("ventanaLogin").style.display = "block";
+}
+
+function ocultarVentanaLogin() {
+    document.getElementById("ventanaLogin").style.display = "none";
+}

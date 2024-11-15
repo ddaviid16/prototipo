@@ -193,17 +193,16 @@ h1 {
 .categoria-button:hover {
     background-color: #555;
 }
-/* Contenedor del menú desplegable */
-.DisenoMenuDespegable {
-    position: relative;
-    display: inline-block;
-}
-
 /* Botón de acción */
 .action-btn {
     font-size: 1.5rem;
     color: #333;
     text-decoration: none;
+}
+/* Contenedor del menú desplegable */
+.DisenoMenuDespegable {
+    position: relative;
+    display: inline-block;
 }
 
 /* Menú desplegable oculto por defecto */
@@ -238,6 +237,85 @@ h1 {
 .DisenoMenuDespegable:hover .VentanaAbajOtros-content {
     display: block;
 }
+
+
+
+/* Contenedor del menú desplegable */
+.MenuDesplegableSesion {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menú desplegable oculto por defecto */
+.VentanaLoginContenido {
+    display: none; 
+    position: absolute;
+    top: 80px; 
+    left: -35%; 
+    transform: translateX(-50%); 
+    background-color: #141414;
+    min-width: 350px; /* Puedes ajustarlo según el tamaño que prefieras */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 15px; /* Espaciado aumentado */
+    z-index: 1;
+}
+
+/* Estilos de los enlaces dentro del menú desplegable */
+.VentanaLoginContenido a {
+    color: white;
+    padding: 12px 16px; /* Padding aumentado para enlaces */
+    text-decoration: none;
+    display: block;
+}
+
+/* Efecto hover para los enlaces del menú */
+.VentanaLoginContenido a:hover {
+    background-color: #575757;
+}
+
+/* Mostrar el menú cuando el usuario pasa el ratón sobre el contenedor */
+.MenuDesplegableSesion:hover .VentanaLoginContenido {
+    display: block;
+}
+/* Inputs de usuario y contraseña */
+input[type="text"],
+input[type="password"] {
+
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+}
+
+/* Opciones adicionales (checkbox y enlaces) */
+.opciones-adicionales {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+
+.opciones-adicionales a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+
+.opciones-adicionales a:hover {
+    text-decoration: underline;
+}
+
+
+
+
 /*ESTILO PARA EL LOGIN*/
 .background-login{
     background-color: #535353;
@@ -270,22 +348,6 @@ h1 {
     color: white;
     font-weight: bold;
 }
-
-
-/* Inputs de usuario y contraseña */
-input[type="text"],
-input[type="password"] {
-    display: block;
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-}
-
 
 /* Botón de iniciar sesión */
 .login-container button {
