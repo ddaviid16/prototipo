@@ -1,0 +1,68 @@
+/* Contenedor del detalle del producto */
+.product-detail-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Usamos flexbox para alinear los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente */
+}
+
+/* Imagen del producto */
+.product-detail-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de la información del producto */
+.product-info {
+    max-width: 600px;
+    margin-left: 30px; /* Espaciado entre la imagen y la información */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Título del producto */
+.product-info h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Descripción del producto */
+.product-info .description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Precio del producto */
+.product-info .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #E74C3C;
+    margin-bottom: 20px;
+}
+
+/* Botón */
+.product-info .btn {
+    padding: 10px 20px;
+    background-color: #E74C3C;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.product-info .btn:hover {
+    background-color: #C0392B;
+}

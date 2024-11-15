@@ -30,15 +30,18 @@ body {
 
 /* Galería de productos */
 .product-gallery {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
 .product-item {
+    width: calc(33.333% - 20px); /* Esto mantiene tres productos por fila en pantallas grandes */
     border: 1px solid #ddd;
     padding: 15px;
     text-align: center;
     background-color: #fff;
-    margin-bottom: 20px;
     border-radius: 8px;
 }
 
@@ -57,6 +60,11 @@ body {
     font-size: 14px;
     color: #555;
 }
+/* Elimina el subrayado de todos los enlaces */
+a {
+    text-decoration: none;
+}
+
 
 footer {
     text-align: center;
@@ -67,7 +75,6 @@ footer {
     width: 100%;
     bottom: 0;
 }
-
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
