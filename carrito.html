@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="stylesProd.css">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+
+<header>
+    <div class="header-content">
+        <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
+        <h1>Bazar Novias y XV</h1>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="#">Tabla de Tallas</a></li>
+        </ul>
+    </nav>
+    </div>
+    <div class="header-actions">
+        <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
+        <div class="MenuDesplegableSesion">
+            <button onmouseover="mostrarVentanaLogin()" onmouseout="ocultarVentanaLogin()">Iniciar Sesion</button>
+            <div class="VentanaLoginContenido">
+                <input type="text" id="login-user" placeholder="Usuario" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button onclick="iniciarSesion()">Iniciar sesión</button>
+                <div id="error-msg" class="error"></div>
+                <div class="opciones-adicionales">
+                    <label><input type="checkbox"> Recuérdame</label>
+                    <a href="ResetPassword.html">¿Olvidaste la contraseña? </a>
+                </div>
+                <p>¿Primera vez en la pagina? <a href="Signup.html">Ingresa ahora.</a></p>
+            </div>
+        </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <h1>Carrito de Compras</h1>
+    <div id="cart-container">
+        <div id="cart-items"></div>
+        <p id="empty-cart-message">Tu carrito está vacío.</p>
+        <button id="clear-cart">Vaciar Carrito</button>
+    </div>
+    <button id="checkout-button">Finalizar Compra</button>
+    <script src="carrito.js">
+    </script>
+
+
+
+<script src="carrito.js"></script>
+<script src="codigo.js"></script>
+<script src="codigoProd.js"></script>
+</body>
+</html>
