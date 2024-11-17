@@ -13,12 +13,31 @@
         <div class="header-content">
             <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
             <h1>Bazar Novias y XV</h1>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                </ul>
-            </nav>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="#">Tabla de Tallas</a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="header-actions">
+            <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
+            <div class="MenuDesplegableSesion">
+                <button onmouseover="mostrarVentanaLogin()" onmouseout="ocultarVentanaLogin()">Iniciar Sesion</button>
+                <div class="VentanaLoginContenido">
+                    <input type="text" id="login-user" placeholder="Usuario" required>
+                    <input type="password" id="login-password" placeholder="Contraseña" required>
+                    <button onclick="iniciarSesion()">Iniciar sesión</button>
+                    <div id="error-msg" class="error"></div>
+                    <div class="opciones-adicionales">
+                        <label><input type="checkbox"> Recuérdame</label>
+                        <a href="ResetPassword.html">¿Olvidaste la contraseña? </a>
+                    </div>
+                    <p>¿Primera vez en la pagina? <a href="Signup.html">Ingresa ahora.</a></p>
+                </div>
+            </div>
+            </div>
         </div>
     </header>
 
