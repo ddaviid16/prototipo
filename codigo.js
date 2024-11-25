@@ -1,9 +1,4 @@
-// Función para redirigir a la página de login
-function RedirigirLogin() {
-    window.location.href = "Login.html";
-  }
-  
-  // Función para registrar un usuario con código de seguridad
+// Función para registrar un usuario con código de seguridad
   function registrarUsuario() {
     const username = document.getElementById("signup-user").value;
     const password = document.getElementById("signup-password").value;
@@ -13,7 +8,7 @@ function RedirigirLogin() {
       // Guarda el usuario, contraseña y código de seguridad en el localStorage
       localStorage.setItem(username, JSON.stringify({ password: password, securityCode: securityCode }));
       alert("Cuenta creada con éxito");
-      window.location.href = "Login.html";
+      window.location.href = "index.html";
     } else {
       alert("Por favor, completa todos los campos");
     }
@@ -118,11 +113,22 @@ function RedirigirLogin() {
     }
   }
   
-  // Cargar el nombre de usuario en el menú desplegable al cargar la página
   document.addEventListener("DOMContentLoaded", () => {
     const usuario = localStorage.getItem("user");
+    console.log(usuario); // Verificar si el usuario está en el localStorage
     if (usuario) {
-      document.getElementById("usuario-link").textContent = usuario;
+        document.getElementById("usuario-link").textContent = usuario;
     }
-  });
+});
   
+
+
+
+  
+  function mostrarVentanaLogin() {
+    document.getElementById("ventanaLogin").style.display = "block";
+}
+
+function ocultarVentanaLogin() {
+    document.getElementById("ventanaLogin").style.display = "none";
+}

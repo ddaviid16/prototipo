@@ -21,7 +21,7 @@ function displayProducts() {
         const item = document.createElement("div");
         item.className = "product-item";
         item.innerHTML = `
-            <a href="detalle-producto.html?id=${product.id}">
+            <a href="detallemain.html?id=${product.id}">
                 <img src="${product.img}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
@@ -154,7 +154,7 @@ function displayProductDetails() {
                 <p>Talla: ${product.size}</p>
                 <p>Color: ${product.color}</p>
                 <p>Categoría: ${product.category}</p>
-                <button onclick="addToCart(${product.id})">Agregar al carrito</button>
+               <button onclick="addToCart(${product.id})">Agregar al carrito</button>
             </div>
         `;
     } else {
