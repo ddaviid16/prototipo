@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Domicilio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body class="background-login">
+    <div class="login-container">
+        <h1>Ingrese los detalles del domicilio a realizar el envío.</h1>
+        <input type="text" id="calle" placeholder="Calle y Colonia" required pattern="^[a-zA-Z]+ [a-zA-Z]+$">
+        <input type="text" id="numero" placeholder="Número Exterior">
+        <input type="text" id="ciudad" placeholder="Ciudad">
+        <input type="text" id="estado" placeholder="Estado">
+        <input type="text" id="zip" placeholder="Código Postal" maxlength="5" required oninput="formatZip(this)">
+        <button type="button" onclick="guardarDomicilio()">Guardar y Continuar</button>
+        <div id="error-msg" class="error"></div>
+    </div>
+    <script src="addDomicilio.js"></script>
+</body>
+</html>

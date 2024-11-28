@@ -1,5 +1,4 @@
-// Simulación del total del carrito de compras
-const totalCarrito = 123.45; // Este valor debería ser dinámico en una aplicación real
+let totalCarrito = 0;
 document.getElementById('total-amount').textContent = `$${totalCarrito.toFixed(2)}`;
 document.addEventListener("DOMContentLoaded", () => {
     const totalPrice = localStorage.getItem("totalPrice");
@@ -9,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".login-container").appendChild(totalPriceContainer);
     }
 });
+
+function formatExpiryDate(input) {
+    let value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    if (value.length > 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4); // Agrega la diagonal
+    }
+    input.value = value;
+}
 
 function procesarPago() {
     const cardHolder = document.getElementById('card-holder').value;
@@ -48,8 +55,8 @@ function procesarPago() {
     // Simular procesamiento de pago
     const totalPrice = localStorage.getItem("totalPrice");
     errorMsg.textContent = `Pago de $${totalPrice} procesado exitosamente.`;
-    // Esperar 5 segundos y redirigir a tenkiu.html
+    // Esperar 3 segundos y redirigir a tenkiu.html
 setTimeout(() => {
     window.location.href = "tenkiu.html";
-}, 5000);
+}, 3000);
 }

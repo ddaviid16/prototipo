@@ -84,3 +84,7 @@ footer {
         width: 100%;
     }
 }
+option:disabled {
+    color: gray;
+    cursor: not-allowed;
+}
