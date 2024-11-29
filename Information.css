@@ -1,0 +1,79 @@
+
+/* Aseguramos que los contenedores mantengan el flujo natural */
+body {
+    margin: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    background: linear-gradient(135deg, #f8efe6, #e5d5c5, #c2a895);
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén uno debajo del otro */
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+/* Estilos generales para los contenedores */
+.login-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Separación entre ambos contenedores */
+    text-align: center;
+}
+
+/* Títulos */
+.login-container h1 {
+    font-size: 1.8rem;
+    color: #7a4b2d;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.login-container input {
+    width: calc(50% - 10px);
+    margin: 10px 5px;
+    padding: 10px;
+    border: 1px solid #c7a17a;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #3a2a2a;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Inputs al enfocarse */
+.login-container input:focus {
+    border-color: #b5825c;
+    box-shadow: 0px 0px 10px rgba(181, 130, 92, 0.7);
+}
+
+/* Botones */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #d6b393, #b5825c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* Botones al pasar el mouse */
+.login-container button:hover {
+    background: linear-gradient(135deg, #b5825c, #d6b393);
+    transform: scale(1.05);
+}
+
+/* Estilo para mensajes de error */
+#error-msg {
+    margin-top: 10px;
+    color: #b55353;
+    font-size: 0.9rem;
+}

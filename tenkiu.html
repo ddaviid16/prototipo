@@ -11,17 +11,18 @@
     <link rel="stylesheet" href="carrito.css">
 </head>
 
+<body>
 <header>
     <div class="header-content">
         <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
         <h1>Bazar Novias y XV</h1>
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="PaginaMain.html">Inicio</a></li>
-            <li><a href="productosmain.html">Productos</a></li>
-            <li><a href="tablaTallas.html">Tabla de Tallas</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="PaginaMain.html">Inicio</a></li>
+                <li><a href="productosmain.html">Productos</a></li>
+                <li><a href="tablaTallasmain.html">Tabla de Tallas</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="header-actions">
         <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
@@ -30,16 +31,39 @@
             <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
             <div id="menudespegable2" class="VentanaAbajOtros-content2">
                 <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
+                <a href="Myaccount.html">Mi cuenta</a>
+                <a href="MisPedidos.html">Mis pedidos</a>
                 <a onclick="CerrarSesion()">Cerrar sesión</a>
             </div>
+        </div>
     </div>
 </header>
 
-<body>
+<main>
     <h1 style="text-align: center; font-size: 2.5em; margin-top: 20%;">¡Gracias por tu compra! Tu pedido llegará pronto :)</h1>
-    <h4 style="text-align: center; font-size: 1em;">(o no)</span></h4>
-    <h4 style="text-align: center; font-size: 1.5em;">Número de pedido: 00001</span></h4>
+    <h4 style="text-align: center; font-size: 1em;">(o no)</h4>
+    <h4 id="pedido" style="text-align: center; font-size: 1.5em;">Número de pedido: 00001</h4>
+    <script>
+        // Obtener el número de pedido actual desde localStorage
+        let numeroPedido = localStorage.getItem('numeroPedido');
+
+        // Si no existe, inicializarlo en 1
+        if (!numeroPedido) {
+            numeroPedido = 1;
+        } else {
+            // Incrementar el número de pedido
+            numeroPedido = parseInt(numeroPedido) + 1;
+        }
+
+        // Guardar el nuevo número de pedido en localStorage
+        localStorage.setItem('numeroPedido', numeroPedido);
+
+        // Mostrar el número de pedido en el elemento con id "pedido"
+        document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
+    </script>
     <h2 style="text-align: center; font-size: 1.5em;">¿Quieres seguir comprando? <a href="productosmain.html">Haz clic aquí</a></h2>
-    <div
+</main>
+
+<script src="Information.js"></script>
 </body>
 </html>

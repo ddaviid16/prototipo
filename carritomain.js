@@ -129,7 +129,7 @@ checkoutButton.addEventListener("click", () => {
             return sum + price * quantity;
         }, 0);
         localStorage.setItem("totalPrice", totalPrice);
-        window.location.href = "addDomicilio.html";
+        window.location.href = "Information.html";
     } else {
         alert("Tu carrito está vacío.");
     }
