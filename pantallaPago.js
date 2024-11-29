@@ -44,6 +44,16 @@ function procesarPago() {
         errorMsg.textContent = 'Fecha de vencimiento inválida. Debe estar en formato MM/AA.';
         return;
     }
+    // Verificar si la fecha de vencimiento es menor a la fecha actual
+    const [expMonth, expYear] = expiryDate.split('/').map(Number);
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; //Obtener el mes actual
+    const currentYear = currentDate.getFullYear() % 100; // Obtener los últimos dos dígitos del año
+
+    if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
+        errorMsg.textContent = 'Fecha de vencimiento inválida. La tarjeta está vencida.';
+        return;
+    }
 
     // Validar CVV (3 dígitos)
     const cvvRegex = /^\d{3}$/;
