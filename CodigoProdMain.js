@@ -33,19 +33,7 @@ function displayProducts() {
         `;
         gallery.appendChild(item);
     });
-    document.getElementById('product-detail').innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <div class="product-info">
-        <h2>${product.name}</h2>
-        <p class="description">${product.description}</p>
-        <p class="price">$${product.price}</p>
-        <p>Talla: ${product.size}</p>
-        <p>Color: ${product.color}</p>
-        <p>Categoría: ${product.category}</p>
-        <p>Disponible: ${product.stock} unidades</p>
-        <button onclick="addToCart(${product.id})">Agregar al carrito</button>
-    </div>
-`;
+    ;
 
 
     document.getElementById("page-number").textContent = currentPage;
