@@ -1,9 +1,9 @@
 // Base de datos de productos para la galería
 let galleryProducts = JSON.parse(localStorage.getItem("galleryProducts")) || [
-    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg",stock: 5 },
-    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
-    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
-    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
+    { id: 1, name: "Vestido esmeralda de XV", description:'Este vestido esmeralda es perfecto para tu fiesta de XV...', price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg",stock: 5 },
+    { id: 2, name: "Vestido Moderno de XV", description: 'Un vestido moderno y elegante para tu fiesta de XV...', price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
+    { id: 3, name: "Vestido de Novia Moderno", description: 'Un vestido blanco, elegante y moderno para novias...', price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
+    { id: 4, name: "Vestido de XV Oro", description: 'Vestido de XV en color oro, perfecto para destacar...', price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
 ];
 
 document.addEventListener("DOMContentLoaded", displayProducts);
@@ -167,7 +167,7 @@ function displayProductDetails() {
             <img src="${product.img}" alt="${product.name}">
             <div class="product-info">
                 <h2>${product.name}</h2>
-                <p class="description">Descripción del producto...</p>
+                <p class="description">${product.description}</p>
                 <p class="price">${product.price}</p>
                 <p>Talla: ${product.size}</p>
                 <p>Color: ${product.color}</p>
