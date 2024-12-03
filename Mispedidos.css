@@ -1,0 +1,147 @@
+
+/* Estilo para cada elemento de un pedido */
+.pedido {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* Estilo para los encabezados de cada pedido */
+.pedido-header {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.pedido-header h5 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.pedido-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Estilo para los detalles del pedido */
+.pedido-details {
+    font-size: 1rem;
+    color: #555;
+}
+
+.pedido-details p {
+    margin-bottom: 5px;
+}
+
+/* Estilo para los productos dentro del pedido */
+.pedido-products {
+    margin-top: 20px;
+}
+
+.pedido-products h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Contenedor principal de los pedidos */
+#mis-pedidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo para cada producto */
+.product-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);  /* Efecto al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de la imagen del producto */
+.product-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Contenedor de la información del producto */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+}
+
+/* Título y nombre del producto */
+.product-info h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/* Descripción general del producto */
+.product-info p {
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 8px;
+}
+
+.product-info p strong {
+    color: #2980b9; /* Color para destacar algunos elementos */
+}
+
+/* Precio del producto */
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+/* Detalles del pedido */
+.pedido-products {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.pedido-products h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.pedido-products p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Asegura que los productos no se desborden */
+.product-item .product-info {
+    overflow: hidden;
+}
