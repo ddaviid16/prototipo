@@ -9,13 +9,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="stylesProd.css">
     <link rel="stylesheet" href="carrito.css">
-</head>
 
+    <style>
+        /* Main section styling */
+        main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 40px;
+        }
+
+        .Cuadro-Detalles-Pedido {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .Cuadro-Detalles-Pedido h4 {
+            font-size: 1.8em;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+
+        .Cuadro-Detalles-Pedido p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Botón de seguir comprando */
+        h2 a {
+            text-decoration: none;
+            color: #4A90E2;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        h2 a:hover {
+            color: #2C3E50;
+        }
+    </style>
+</head>
 <body>
-<header>
-    <div class="header-content">
-        <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
-        <h1>Bazar Novias y XV</h1>
+    <header>
+        <div class="header-content">
+            <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
+            <h1>Bazar Novias y XV</h1>
         <nav>
             <ul class="nav-menu">
                 <li><a href="PaginaMain.html">Inicio</a></li>
@@ -23,47 +69,93 @@
                 <li><a href="tablaTallasmain.html">Tabla de Tallas</a></li>
             </ul>
         </nav>
-    </div>
-    <div class="header-actions">
-        <a href="#" class="action-btn"><i class="fas fa-search"></i></a>
-        <a href="carritomain.html" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
-        <div class="DisenoMenuDespegable2">
-            <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
-            <div id="menudespegable2" class="VentanaAbajOtros-content2">
-                <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
-                <a href="Myaccount.html">Mi cuenta</a>
-                <a href="MisPedidos.html">Mis pedidos</a>
-                <a onclick="CerrarSesion()">Cerrar sesión</a>
-            </div>
         </div>
-    </div>
-</header>
+        <div class="header-actions">
+            <a href="carritomain.html" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+            <div class="DisenoMenuDespegable2">
+                <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
+                <div id="menudespegable2" class="VentanaAbajOtros-content2">
+                    <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
+                    <a href="Myaccount.html">Mi cuenta</a>
+                    <a href="MisPedidos.html">Mis pedidos</a>
+                    <a onclick="CerrarSesion()">Cerrar sesión</a>
+                </div>
+        </div>
+    </header>
 
-<main>
-    <h1 style="text-align: center; font-size: 2.5em; margin-top: 20%;">¡Gracias por tu compra! Tu pedido llegará pronto :)</h1>
-    <h4 style="text-align: center; font-size: 1em;">(o no)</h4>
-    <h4 id="pedido" style="text-align: center; font-size: 1.5em;">Número de pedido: 00001</h4>
-    <script>
-        // Obtener el número de pedido actual desde localStorage
-        let numeroPedido = localStorage.getItem('numeroPedido');
+    <main>
+        <h1>¡Gracias por tu compra! Tu pedido llegará pronto :)</h1>
 
-        // Si no existe, inicializarlo en 1
-        if (!numeroPedido) {
-            numeroPedido = 1;
-        } else {
-            // Incrementar el número de pedido
-            numeroPedido = parseInt(numeroPedido) + 1;
-        }
+        <div class="Cuadro-Detalles-Pedido">
+            <h4>Detalles del Pedido</h4>
+            <div id="Detalles"></div>
+            <h4 id="pedido">Número de pedido: 00001</h4>
+        </div>
 
-        // Guardar el nuevo número de pedido en localStorage
-        localStorage.setItem('numeroPedido', numeroPedido);
+        <script>
+            // Obtener los detalles del pedido desde localStorage
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
 
-        // Mostrar el número de pedido en el elemento con id "pedido"
-        document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
-    </script>
-    <h2 style="text-align: center; font-size: 1.5em;">¿Quieres seguir comprando? <a href="productosmain.html">Haz clic aquí</a></h2>
-</main>
+            // Mostrar los productos comprados
+            if (orderDetails.products && orderDetails.products.length > 0) {
+                const productDetails = orderDetails.products.map(product => {
+                    return `
+                        <div class="product-detail" style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                            <img src="${product.img}" alt="${product.name}" style="width: 100px; height: 100px; margin-right: 20px;">
+                            <div class="product-info">
+                                <h5>${product.name}</h5>
+                                <p>Talla: ${product.size}</p>
+                                <p>Color: ${product.color}</p>
+                                <p>Precio: ${product.price}</p>
+                                <p>Cantidad: ${product.quantity}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                document.getElementById("Detalles").innerHTML = productDetails;
+            } else {
+                document.getElementById("Detalles").innerHTML = "<p>No se encontraron productos en tu pedido.</p>";
+            }
 
-<script src="Information.js"></script>
+            // Mostrar los detalles del domicilio, tarjeta y fecha de entrega
+            if (orderDetails) {
+                const detailsMessage = `
+                    <div style="border-top: 1px solid #ddd; padding-top: 20px;">
+                        <h5>Dirección de Envío:</h5>
+                        <p>${orderDetails.address}</p>
+                        <h5>Método de Pago:</h5>
+                        <p>${orderDetails.payment}</p>
+                        <h5>Fecha de Entrega:</h5>
+                        <p>${orderDetails.deliveryDate}</p>
+                    </div>
+                `;
+                document.getElementById("Detalles").innerHTML += detailsMessage;
+            } else {
+                document.getElementById("Detalles").innerHTML += "<p>No se encontraron detalles del pedido.</p>";
+            }
+
+            // Obtener el número de pedido actual desde localStorage
+            let numeroPedido = localStorage.getItem('numeroPedido');
+
+            // Si no existe, inicializarlo en 1
+            if (!numeroPedido) {
+                numeroPedido = 1;
+            } else {
+                // Incrementar el número de pedido
+                numeroPedido = parseInt(numeroPedido) + 1;
+            }
+
+            // Guardar el nuevo número de pedido en localStorage
+            localStorage.setItem('numeroPedido', numeroPedido);
+
+            // Mostrar el número de pedido en el elemento con id "pedido"
+            document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
+        </script>
+
+        <h2>¿Quieres seguir comprando? <a href="productosmain.html" onclick="BorrarCarro()">Haz clic aquí</a></h2>
+    </main>
+
+    <script src="Information.js"></script>
+    <script src="carritomain.js"></script>
 </body>
 </html>

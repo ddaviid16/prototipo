@@ -1,10 +1,12 @@
 // Base de datos de productos para la galería
-const galleryProducts = [
-    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg" },
-    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg" },
-    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg" },
-    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg" }
+let galleryProducts = JSON.parse(localStorage.getItem("galleryProducts")) || [
+    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg",stock: 5 },
+    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
+    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
+    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
 ];
+
+document.addEventListener("DOMContentLoaded", displayProducts);
 
 let currentPage = 1;
 const itemsPerPage = 8;
@@ -26,10 +28,25 @@ function displayProducts() {
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
                 <p>${product.price}</p>
+                <p>Disponibles: ${product.stock}</p>
             </a>
         `;
         gallery.appendChild(item);
     });
+    document.getElementById('product-detail').innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <div class="product-info">
+        <h2>${product.name}</h2>
+        <p class="description">${product.description}</p>
+        <p class="price">$${product.price}</p>
+        <p>Talla: ${product.size}</p>
+        <p>Color: ${product.color}</p>
+        <p>Categoría: ${product.category}</p>
+        <p>Disponible: ${product.stock} unidades</p>
+        <button onclick="addToCart(${product.id})">Agregar al carrito</button>
+    </div>
+`;
+
 
     document.getElementById("page-number").textContent = currentPage;
 }
@@ -84,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Base de datos de productos para detalles
+/*// Base de datos de productos para detalles
 const detailProducts = [
     {
         id: 1,
@@ -125,8 +142,9 @@ const detailProducts = [
         category: 'XV',
         price: 9000,
         image: 'imagenes/producto4.jpg'
+    
     }
-];
+];*/
 
 // Función para obtener parámetros de la URL
 function getQueryParameter(name) {
@@ -142,19 +160,20 @@ function displayProductDetails() {
         return;
     }
 
-    const product = detailProducts.find(p => p.id === parseInt(productId));
+    const product = galleryProducts.find(p => p.id === parseInt(productId));
 
     if (product) {
         document.getElementById('product-detail').innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.img}" alt="${product.name}">
             <div class="product-info">
                 <h2>${product.name}</h2>
-                <p class="description">${product.description}</p>
-                <p class="price">$${product.price}</p>
+                <p class="description">Descripción del producto...</p>
+                <p class="price">${product.price}</p>
                 <p>Talla: ${product.size}</p>
                 <p>Color: ${product.color}</p>
                 <p>Categoría: ${product.category}</p>
-               <button onclick="addToCart(${product.id})">Agregar al carrito</button>
+                <p>Disponible: ${product.stock} unidades</p>
+                <button onclick="addToCart(${product.id})">Agregar al carrito</button>
             </div>
         `;
     } else {

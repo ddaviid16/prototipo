@@ -37,9 +37,6 @@ function updateCart() {
                         <button class="decrease-quantity" data-index="${index}">-</button>
                         <span>${item.quantity}</span>
                         <button class="increase-quantity" data-index="${index}">+</button>
-                    </div>
-                    <button class="remove-item" data-index="${index}">Eliminar</button>
-                </div>
             `;
             cartItemsContainer.appendChild(cartItem);
         });

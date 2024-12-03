@@ -1,79 +1,282 @@
 
-/* Aseguramos que los contenedores mantengan el flujo natural */
+
+
 body {
-    margin: 0;
     font-family: 'Bebas Neue', sans-serif;
-    background: linear-gradient(135deg, #f8efe6, #e5d5c5, #c2a895);
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* Estilo general del contenedor principal */
+.checkout-container {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos estén uno debajo del otro */
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 20px 0;
-}
-
-/* Estilos generales para los contenedores */
-.login-container {
-    width: 90%;
-    max-width: 600px;
+    justify-content: space-between; /* Espaciado entre las secciones */
+    align-items: flex-start;
+    gap: 20px; /* Espaciado horizontal entre las secciones */
+    width: 80%;
+    margin: auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: white;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Separación entre ambos contenedores */
-    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos */
-.login-container h1 {
-    font-size: 1.8rem;
-    color: #7a4b2d;
-    margin-bottom: 15px;
+/* Secciones principales */
+.left-section {
+    display: flex;
+    flex-direction: column; /* Apila las dos secciones verticalmente */
+    gap: 20px; /* Espaciado entre las dos secciones */
+    flex: 2; /* Ocupa más espacio en comparación con la sección de confirmación */
 }
 
-/* Inputs */
-.login-container input {
-    width: calc(50% - 10px);
-    margin: 10px 5px;
-    padding: 10px;
-    border: 1px solid #c7a17a;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    color: #3a2a2a;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
+/* Cada bloque individual (dirección y método de pago) */
+.section {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Inputs al enfocarse */
-.login-container input:focus {
-    border-color: #b5825c;
-    box-shadow: 0px 0px 10px rgba(181, 130, 92, 0.7);
+/* Confirmación del pedido */
+.right-section {
+    flex: 1; /* Ocupa menos espacio que la izquierda */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Botones */
-.login-container button {
-    width: 100%;
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(4, 0, 255);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Botón amarillo */
+.yellow-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.yellow-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Botón rojo */
+.red-btn {
+    background-color: #dc3545;
+    color: rgb(247, 247, 247);
+}
+
+.red-btn:hover {
+    background-color: #c82333;
+}
+
+/* Estilo general del input */
+.input-field {
+    width: 100%; /* Ocupar todo el ancho disponible */
     padding: 10px;
-    background: linear-gradient(135deg, #d6b393, #b5825c);
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box; /* Asegura que padding no afecte el tamaño */
+}
+
+/* Input al estar enfocado */
+.input-field:focus {
+    outline: none;
+    border-color: #dbb346; /* Resalta con el color amarillo del tema */
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+/* Modal */
+.modal.hidden {
+    display: none;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 600px;
+}
+/* Estilizar inputs dentro del modal */
+.modal form input {
+    width: 90%; /* Ocupa todo el ancho del contenedor */
+    padding: 12px 15px; /* Espaciado interno para mejor legibilidad */
+    margin: 10px 0; /* Espaciado entre campos */
+    font-size: 16px; /* Tamaño de fuente cómodo */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo suave */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Al enfocar un input */
+.modal form input:focus {
+    border-color: #007bff; /* Borde azul cuando está activo */
+    background-color: #fff; /* Fondo blanco */
+    outline: none; /* Elimina el borde predeterminado del navegador */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efecto de sombra elegante */
+}
+
+/* Placeholder estilizado */
+.modal form input::placeholder {
+    color: #aaa; /* Color del texto del placeholder */
+    font-style: italic; /* Estilo itálico */
+}
+.btn {
+    margin-top: 10px;
+}
+
+/* Estilo de los elementos seleccionables */
+.selectable-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.selectable-item.selected {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+}
+
+.selectable-item span {
+    flex-grow: 1;
+}
+
+/* Botón eliminar */
+.selectable-item .btn.red-btn {
+    margin-left: 10px;
+}
+
+/* Botón agregar */
+#add-address-btn,
+#add-payment-btn {
+    margin-top: 10px;
+}
+/* Modal Container */
+.form-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.form-modal.hidden {
+    display: none;
+}
+
+/* Modal Content */
+.form-modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Modal Title */
+.form-modal .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Form Inputs */
+.form-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-modal input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Placeholder Text */
+.form-modal input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Error Message */
+.form-modal .error {
+    color: #FF0000;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.form-modal button {
+    background-color: #007BFF;
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    text-transform: uppercase;
-    transition: 0.3s;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-/* Botones al pasar el mouse */
-.login-container button:hover {
-    background: linear-gradient(135deg, #b5825c, #d6b393);
-    transform: scale(1.05);
+.form-modal button:hover {
+    background-color: #0056b3;
 }
 
-/* Estilo para mensajes de error */
-#error-msg {
-    margin-top: 10px;
-    color: #b55353;
-    font-size: 0.9rem;
+/* Button Container */
+.form-modal .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
+
+
+

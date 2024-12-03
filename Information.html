@@ -3,23 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Elegante</title>
+    <title>Formulario de Envío y Pago</title>
     <link rel="stylesheet" href="Information.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Formulario de Domicilio -->
-    <div id="domicilio-form" class="login-container active">
-        <h1>Detalles del Domicilio</h1>
-        <input type="text" id="calle" placeholder="Calle y Colonia" required>
-        <input type="text" id="numero" placeholder="Número Exterior">
-        <input type="text" id="ciudad" placeholder="Ciudad">
-        <input type="text" id="estado" placeholder="Estado">
-        <input type="text" id="zip" placeholder="Código Postal" maxlength="5" required oninput="formatZip(this)">
-        <button type="button" onclick="guardarDomicilio()">Guardar y Continuar</button>
-
-        <div id="error-msg" class="error"></div>
+    <div class="checkout-container">
+        <!-- Sección izquierda: Dirección y método de pago -->
+        <div class="left-section">
+            <!-- Selecciona una dirección de envío -->
+            <div class="section">
+                <h3>1. Selecciona una dirección de envío</h3>
+                <div id="address-list">
+                    <!-- Aquí se renderizarán las direcciones desde JS -->
+                </div>
+                <button id="add-address-btn" class="btn">+ Agregar nueva dirección</button>
+            </div>
+    
+            <!-- Seleccionar un método de pago -->
+            <div class="section">
+                <h3>2. Seleccionar un método de pago</h3>
+                <div id="payment-list">
+                    <!-- Aquí se renderizarán los métodos de pago desde JS -->
+                </div>
+                <button id="add-payment-btn" class="btn">+ Agregar nueva tarjeta</button>
+            </div>
+        </div>
+    
+        <!-- Confirmación del pedido -->
+        <div class="right-section">
+            <h3>Confirmación del Pedido</h3>
+            <p>Productos: --</p>
+            <p>Envío: --</p>
+            <p><strong>Total (IVA incluido 16%): $0.00</strong></p>
+            <p>Total: --</p>
+            <button class="btn yellow-btn" onclick="procesarPago()">Continuar</button>
+        </div>
     </div>
+
+    <!-- Modal para agregar dirección o tarjeta -->
+    <div id="form-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title"></h3>
+            <form id="dynamic-form">
+                <!-- El contenido dinámico del formulario será inyectado aquí -->
+            </form>
+            <button id="save-btn" class="btn yellow-btn">Guardar</button>
+            <button id="close-btn" class="btn red-btn">Cancelar</button>
+        </div>
+    </div>
+
     <script src="Information.js"></script>
+    <script src="carritomain.js"></script>
+    <script src="dbPedidos.js"></script>
+    
+    
 </body>
 </html>
