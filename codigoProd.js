@@ -1,9 +1,9 @@
 // Base de datos de productos para la galería
 const galleryProducts = [
-    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg" },
-    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg" },
-    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg" },
-    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg" }
+    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg", stock: 5 },
+    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
+    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
+    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
 ];
 
 let currentPage = 1;
@@ -94,7 +94,8 @@ const detailProducts = [
         color: 'Esmeralda',
         category: 'XV',
         price: 7000,
-        image: 'imagenes/producto1.jpg'
+        image: 'imagenes/producto1.jpg',
+        stock: 5
     },
     {
         id: 2,
@@ -104,7 +105,8 @@ const detailProducts = [
         color: 'Rojo',
         category: 'XV',
         price: 8000,
-        image: 'imagenes/producto3.jpg'
+        image: 'imagenes/producto3.jpg',
+        stock: 5
     },
     {
         id: 3,
@@ -114,7 +116,8 @@ const detailProducts = [
         color: 'Blanco',
         category: 'Novias',
         price: 10000,
-        image: 'imagenes/producto2.jpg'
+        image: 'imagenes/producto2.jpg',
+        stock: 5
     },
     {
         id: 4,
@@ -124,7 +127,8 @@ const detailProducts = [
         color: 'Oro',
         category: 'XV',
         price: 9000,
-        image: 'imagenes/producto4.jpg'
+        image: 'imagenes/producto4.jpg', 
+        stock: 5
     }
 ];
 
@@ -154,6 +158,7 @@ function displayProductDetails() {
                 <p>Talla: ${product.size}</p>
                 <p>Color: ${product.color}</p>
                 <p>Categoría: ${product.category}</p>
+                <p>Disponible: ${product.stock} unidades</p>
                 <button onclick="addToCart(${product.id})">Agregar al carrito</button>
             </div>
         `;
