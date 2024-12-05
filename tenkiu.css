@@ -1,0 +1,25 @@
+#outer {
+    width: 364px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+  }
+  .button_slide {
+    background: #162944;
+    color: #ffffff;
+    border: 2px solid rgb(216, 2, 34);
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: Arial, Monaco, monospace;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #d80222;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+  }
+
+  .slide_right:hover {
+    box-shadow: inset 400px 0 0 0 #D80222;
+  }

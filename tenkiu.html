@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="stylesProd.css">
     <link rel="stylesheet" href="carrito.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="tenkiu.css">
 
     <style>
         /* Main section styling */
@@ -151,10 +154,62 @@
             // Mostrar el número de pedido en el elemento con id "pedido"
             document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
         </script>
-
+        
         <h2>¿Quieres seguir comprando? <a href="productosmain.html" onclick="BorrarCarro()">Haz clic aquí</a></h2>
+        <div id="outer">
+            <div class="button_slide slide_right", id="generatePDF">Descargar Comprobante</div>
+            </div>
     </main>
+    
+    <script>
+        document.getElementById("generatePDF").addEventListener("click", async () => {
+            const { jsPDF } = window.jspdf;
 
+            // Seleccionar la sección <main>
+            const mainContent = document.querySelector("main");
+
+            // Usar html2canvas para renderizar el contenido
+            const canvas = await html2canvas(mainContent, {
+                useCORS: true // Permite cargar imágenes externas
+            });
+
+            // Obtener las dimensiones del canvas
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
+
+            // Calcular las dimensiones para ajustar al tamaño A4 (210mm x 297mm)
+            const a4Width = 216; // Ancho A4 en mm
+            const a4Height = 279; // Alto A4 en mm
+            const margin = 0; // Margen en mm
+            const pdfWidth = a4Width - 2 // Ancho en mm, menos márgenes
+            const pdfHeight = a4Height - 2  // Alto en mm, menos márgenes
+
+            // Calcular el factor de escala
+            const scaleX = pdfWidth / canvasWidth;
+            const scaleY = pdfHeight / canvasHeight;
+            const scaleFactor = Math.min(scaleX, scaleY); // Escalar según la dimensión más restrictiva
+
+            // Redimensionar el canvas
+            const imgWidth = canvasWidth * scaleFactor * 1.15; // Escalar al 75% del tamaño original
+            const imgHeight = canvasHeight * scaleFactor * 1.15; // Escalar al 75% del tamaño original
+
+            // Convertir el canvas a imagen
+            const imgData = canvas.toDataURL("image/jpeg", 5); // Calidad optimizada
+
+            // Crear un documento PDF
+            const pdf = new jsPDF({
+                orientation: "portrait",
+                unit: "mm",
+                format: "letter"
+            });
+
+            // Agregar la imagen al PDF, ajustada a las dimensiones calculadas
+            pdf.addImage(imgData, "JPEG", margin, margin, imgWidth, imgHeight);
+
+            // Descargar el PDF
+            pdf.save("recibo_Pedido.pdf");
+        });
+    </script>
     <script src="Information.js"></script>
     <script src="carritomain.js"></script>
 </body>
