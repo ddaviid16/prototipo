@@ -2,74 +2,98 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Bazar Novias y XV</title>
-    <link rel="stylesheet" href="styles.css">   
-    <link rel="stylesheet" href="Myaccount.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por tu compra</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Mi Cuenta</title>
+    <link rel="stylesheet" href="stylesProd.css">
+    <link rel="stylesheet" href="carrito.css">
+    <header>
+        <div class="header-content">
+            <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
+            <h1>Bazar Novias y XV</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="PaginaMain.html">Inicio</a></li>
+                <li><a href="productosmain.html">Productos</a></li>
+                <li><a href="tablaTallasmain.html">Tabla de Tallas</a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="header-actions">
+            <a href="carritomain.html" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+            <div class="DisenoMenuDespegable2">
+                <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
+                <div id="menudespegable2" class="VentanaAbajOtros-content2">
+                    <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
+                    <a href="Myaccount.html">Mi cuenta</a>
+                    <a href="MisPedidos.html">Mis pedidos</a>
+                    <a onclick="CerrarSesion()">Cerrar sesión</a>
+                </div>
+        </div>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .account-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 40px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <header>
-            <div class="header-content">
-                <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
-                <h1>Bazar Novias y XV</h1>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="PaginaMain.html">Inicio</a></li>
-                    <li><a href="productosmain.html">Productos</a></li>
-                    <li><a href="tablaTallasmain.html">Tabla de Tallas</a></li>
-                </ul>
-            </nav>
-            </div>
-            <div class="header-actions">
-                <a href="carritomain.html" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
-                <div class="DisenoMenuDespegable2">
-                    <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
-                    <div id="menudespegable2" class="VentanaAbajOtros-content2">
-                        <a id="usuario-link"></a> <!-- Esto muestra el usuario -->
-                        <a href="Myaccount.html">Mi cuenta</a>
-                        <a href="MisPedidos.html">Mis pedidos</a>
-                        <a onclick="CerrarSesion()">Cerrar sesión</a>
-                    </div>
-            </div>
-        </header>
-    </header>
-    <main>
-        <div class="welcome-section">
-            <h1 id="welcome-message"></h1>
-            <p>Aquí puedes consultar la información de tu cuenta.</p>
+    <h1>Mi Cuenta</h1>
+    <div class="account-container">
+        <div class="card" onclick="redirigirMispedidos()">
+            <div class="card-icon"><i class="fas fa-box"></i></div>
+            <div class="card-title">Mis pedidos</div>
+            <div class="card-text">Ver tus pedidos.</div>
         </div>
-        <div class="button-container">
-            <button id="btnAddresses">Mis Direcciones</button>
-            <button id="btnPayments">Mis Tarjetas</button>
-            <button onclick="window.location.href='MisPedidos.html'">Mis Pedidos</button>
+        <div class="card" onclick="redirigirPayment()">
+            <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+            <div class="card-title">Gestión de Métodos de Pago</div>
+            <div class="card-text">Ver tus Metodos de pago</div>
         </div>
-        <div id="account-content" class="account-content">
-        <div id="addressesSection" class="list-section hidden">
-            <h3>Direcciones Guardadas</h3>
-            <div id="address-list"></div>
-            <button id="add-address-btn" class="btn">Agregar Dirección</button>
+        <div class="card" onclick="redirigirAddress()">
+            <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="card-title">Gestión de Direcciones</div>
+            <div class="card-text">Ver direcciones para pedidos y regalos.</div>
         </div>
-        <div id="paymentsSection" class="list-section hidden">
-            <h3>Métodos de Pago Guardados</h3>
-            <div id="payments-list"></div>
-            <button id="add-payment-btn" class="btn">Agregar Método de Pago</button>
-        </div>
-        </div>
-    </main>
-
+    </div>
     
-    <script>
-        const usuario = localStorage.getItem("user");
-        document.getElementById("welcome-message").textContent = `¡Hola, ${usuario}!`;
-        document.getElementById("usuario-link").textContent = usuario;
-        </script>
-    <script src="codigo.js"></script>
     <script src="Information.js"></script>
-    <script src="Myacc.js"></script>
-    
-
+    <script src="Myaccount.js"></script>
 </body>
 </html>
