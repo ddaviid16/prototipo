@@ -8,6 +8,7 @@
     width: 100%;
     max-width: 500px;
     padding: 20px;
+    margin-bottom: 50px; /* Espacio entre cuadros */
 }
 
 /* Estilo para los encabezados de cada pedido */
