@@ -340,6 +340,15 @@ function deleteItem(key, index) {
     saveToLocalStorage(key, data);
     key === 'addresses' ? renderAddresses() : renderPayments();
 }
+// Obtener el número de pedido actual desde localStorage o inicializar en 1 si no existe
+let numeroPedido = localStorage.getItem('numeroPedido');
+if (!numeroPedido) {
+    numeroPedido = 1;
+} else {
+    numeroPedido = parseInt(numeroPedido) + 1;
+}
+// Guardar el nuevo número de pedido en localStorage
+localStorage.setItem('numeroPedido', numeroPedido);
 
 // Inicializar
 renderAddresses();
