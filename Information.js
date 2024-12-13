@@ -134,7 +134,7 @@ document.getElementById('add-payment-btn').addEventListener('click', () => {
         <input type="text" id="card-holder" placeholder="Nombre del titular de la tarjeta" required pattern="^[a-zA-Z]+ [a-zA-Z]+$">
         <input type="text" id="card-number" placeholder="Número de tarjeta" maxlength="16" required pattern="\d{16}" oninput="this.value = this.value.replace(/\D/g, '')">
         <input type="text" id="expiry-date" placeholder="Fecha de vencimiento (MM/AA)" maxlength="5" required oninput="formatExpiryDate(this)">
-        <input type="text" id="cvv" placeholder="CVV" maxlength="3" required oninput="formatCVV(this)">
+        <input type="password" id="cvv" placeholder="CVV" maxlength="3" required oninput="formatCVV(this)">
         <div id="error-msg" class="error"></div> 
         `;
     formModal.classList.remove('hidden');
@@ -340,6 +340,15 @@ function deleteItem(key, index) {
     saveToLocalStorage(key, data);
     key === 'addresses' ? renderAddresses() : renderPayments();
 }
+// Obtener el número de pedido actual desde localStorage o inicializar en 1 si no existe
+let numeroPedido = localStorage.getItem('numeroPedido');
+if (!numeroPedido) {
+    numeroPedido = 1;
+} else {
+    numeroPedido = parseInt(numeroPedido) + 1;
+}
+// Guardar el nuevo número de pedido en localStorage
+localStorage.setItem('numeroPedido', numeroPedido);
 
 // Inicializar
 renderAddresses();
