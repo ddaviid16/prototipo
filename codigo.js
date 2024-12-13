@@ -5,6 +5,15 @@
     const securityCode = document.getElementById("security-code").value;
   
     if (username && password && securityCode) {
+      if (password.length < 8) {
+        alert("La contraseña debe tener al menos 8 caracteres.");
+        return;
+      }
+      const regex = /^[a-zA-Z0-9]+$/;
+      if (!regex.test(password)) {
+        alert("La contraseña sólo debe contener números y letras.");
+        return;
+      }
       // Guarda el usuario, contraseña y código de seguridad en el localStorage
       localStorage.setItem(username, JSON.stringify({ password: password, securityCode: securityCode }));
       alert("Cuenta creada con éxito");

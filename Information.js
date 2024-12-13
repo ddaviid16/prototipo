@@ -22,7 +22,13 @@ function renderAddresses() {
         const item = document.createElement('div');
         item.className = 'selectable-item';
         item.innerHTML = `
-            <span>${address.calle}, ${address.numero}, ${address.ciudad}, ${address.estado}, ${address.zip}</span>
+        <span>
+            <strong>Calle:</strong> ${address.calle}<br><br>
+            <strong>Número:</strong> ${address.numero}<br><br>
+            <strong>Ciudad:</strong> ${address.ciudad}<br><br>
+            <strong>Estado:</strong> ${address.estado}<br><br>
+            <strong>Código Postal:</strong> ${address.zip}
+            </span>
             <button onclick="deleteItem('addresses', ${index})" class="btn red-btn">Eliminar</button>
         `;
         item.addEventListener('click', () => selectItem(item, 'address'));
@@ -38,7 +44,10 @@ function renderPayments() {
         const item = document.createElement('div');
         item.className = 'selectable-item';
         item.innerHTML = `
-            <span>${payment.cardHolder} - **** **** **** ${payment.cardNumber.slice(-4)}</span>
+            <span><strong>Titular:</strong> ${payment.cardHolder}<br><br>
+            <strong>Núm. de Tarjeta:</strong> **** **** **** ${payment.cardNumber.slice(-4)}<br><br>
+            <strong>Fecha de Vencimiento:</strong> ${payment.expiryDate}
+            </span>
             <button onclick="deleteItem('payments', ${index})" class="btn red-btn">Eliminar</button>
         `;
         item.addEventListener('click', () => selectItem(item, 'payment'));
@@ -61,16 +70,21 @@ function selectItem(element, type) {
     }
 }
 
-
+function formatoDomicilio(input) {
+    input.value = input.value.replace(/[^a-zA-ZÑñáéíóúÁÉÍÓÚ\s]/g, ''); // Elimina caracteres no alfabéticos
+}
+function formatoAlfanumerico(input) {
+    input.value = input.value.replace(/[^a-zA-Z0-9#\s]/g, ''); // Elimina caracteres especiales
+}
 // Agregar nuevas direcciones
 document.getElementById('add-address-btn').addEventListener('click', () => {
     editingType = 'address';
     modalTitle.textContent = 'Agregar nueva dirección';
     dynamicForm.innerHTML = `
-         <input type="text" id="calle" placeholder="Calle y Colonia" required>
-         <input type="text" id="numero" placeholder="Número Exterior">
-         <input type="text" id="ciudad" placeholder="Ciudad">
-         <input type="text" id="estado" placeholder="Estado">
+         <input type="text" id="calle" placeholder="Calle y Colonia" required oninput="formatoDomicilio(this)">
+         <input type="text" id="numero" placeholder="Número Exterior" required oninput="formatoAlfanumerico(this)">
+         <input type="text" id="ciudad" placeholder="Ciudad"required oninput="formatoDomicilio(this)">
+         <input type="text" id="estado" placeholder="Estado"required oninput="formatoDomicilio(this)">
          <input type="text" id="zip" placeholder="Código Postal" maxlength="5" required oninput="formatZip(this)">
         <div id="error-msg" class="error"></div>
          `;
@@ -88,7 +102,7 @@ saveBtn.addEventListener('click', () => {
         const errorMsg = document.getElementById('error-msg');
 
         // Validar campos
-        const calleRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/;
+        const calleRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+ [a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/;
         const zipRegex = /^\d{5}$/;
 
         if (!calle || !numero || !ciudad || !estado || !zip) {
@@ -97,7 +111,7 @@ saveBtn.addEventListener('click', () => {
         }
 
         if (!calleRegex.test(calle)) {
-            errorMsg.textContent = 'Calle inválida. Ingresa al menos dos palabras.';
+            errorMsg.textContent = 'Calle y colonia inválido. Ingresa al menos dos palabras.';
             return;
         }
 
@@ -114,7 +128,13 @@ saveBtn.addEventListener('click', () => {
         renderAddresses();
     }
 });
-
+function formatoTarjeta(input) {
+    input.value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    input.value = input.value.replace(/(.{4})/g, '$1 ').trim(); // Agrega un espacio cada 4 números
+}
+function formatCardHolder(input) {
+    input.value = input.value.replace(/[^a-zA-Z\s]/g, '').toUpperCase(); // Elimina caracteres no alfabéticos y convierte a mayúsculas
+}
 function formatCVV(input) {
     input.value = input.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
 }
@@ -131,8 +151,8 @@ document.getElementById('add-payment-btn').addEventListener('click', () => {
     editingType = 'payment';
     modalTitle.textContent = 'Agregar nueva tarjeta';
     dynamicForm.innerHTML = `
-        <input type="text" id="card-holder" placeholder="Nombre del titular de la tarjeta" required pattern="^[a-zA-Z]+ [a-zA-Z]+$">
-        <input type="text" id="card-number" placeholder="Número de tarjeta" maxlength="16" required pattern="\d{16}" oninput="this.value = this.value.replace(/\D/g, '')">
+        <input type="text" id="card-holder" placeholder="Nombre del titular de la tarjeta" required pattern="^[a-zA-Z]+ [a-zA-Z]+$" oninput="formatCardHolder(this)">
+        <input type="text" id="card-number" placeholder="Número de tarjeta" maxlength="19" required pattern="\d{19}" oninput="formatoTarjeta(this)"">
         <input type="text" id="expiry-date" placeholder="Fecha de vencimiento (MM/AA)" maxlength="5" required oninput="formatExpiryDate(this)">
         <input type="password" id="cvv" placeholder="CVV" maxlength="3" required oninput="formatCVV(this)">
         <div id="error-msg" class="error"></div> 
@@ -155,7 +175,7 @@ saveBtn.addEventListener('click', () => {
             errorMsg.textContent = 'Nombre del titular de la tarjeta inválido. Debe contener al menos nombre y apellido.';
             return;
         }
-        const cardNumberRegex = /^\d{16}$/;
+        const cardNumberRegex = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
         const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
         const cvvRegex = /^\d{3}$/;
 
@@ -273,7 +293,7 @@ function procesarPago() {
     // Redirigir a la página de agradecimiento
     setTimeout(() => {
         window.location.href = "tenkiu.html";
-    }, 3000);
+    }, 1000);
 }
 
 
@@ -315,13 +335,13 @@ function actualizarPedido() {
     // Obtener la etiqueta del "Total (IVA incluido)"
     const totalIvaElement = document.querySelector(".right-section p:nth-of-type(3)"); // Seleccionar el <p> Total (IVA incluido)
     if (totalIvaElement) {
-        totalIvaElement.innerHTML = `<strong>Total (IVA incluido 16%): $${totalConIva.toFixed(2)}</strong>`;
+        totalIvaElement.innerHTML = `<strong>IVA (16%): $${totalConIva.toFixed(2)}</strong>`;
     }
     
     //Obtener la etiqueta del "Total"
     const PrecioFinal = document.querySelector(".right-section p:nth-of-type(4)"); // Seleccionar el <p> Total (IVA incluido)
     if (PrecioFinal) {
-        PrecioFinal.innerHTML = `Total: $${TotalPedido.toFixed(2)}`;
+        PrecioFinal.innerHTML = `Total (IVA incluido): $${TotalPedido.toFixed(2)}`;
     }
 }
 
