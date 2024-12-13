@@ -138,21 +138,13 @@
             }
 
             // Obtener el número de pedido actual desde localStorage
-            let numeroPedido = localStorage.getItem('numeroPedido');
+        let numeroPedido = localStorage.getItem('numeroPedido');
+        if (!numeroPedido) {
+            numeroPedido = '1';
+        }
+        // Mostrar el número de pedido en el elemento con id "pedido"
+        document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
 
-            // Si no existe, inicializarlo en 1
-            if (!numeroPedido) {
-                numeroPedido = 1;
-            } else {
-                // Incrementar el número de pedido
-                numeroPedido = parseInt(numeroPedido) + 1;
-            }
-
-            // Guardar el nuevo número de pedido en localStorage
-            localStorage.setItem('numeroPedido', numeroPedido);
-
-            // Mostrar el número de pedido en el elemento con id "pedido"
-            document.getElementById('pedido').innerText = 'Número de pedido: ' + numeroPedido;
         </script>
         
         <h2>¿Quieres seguir comprando? <a href="productosmain.html" onclick="BorrarCarro()">Haz clic aquí</a></h2>
