@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por tu compra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+
+        h2 {
+            font-size: 2em;
+            text-align: center;
+            margin: 20px 0;
+            color: #0e0d0d;
+        }
+
+        #payment-list, #address-list {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        #payment-list div, #address-list div {
+            margin-bottom: 10px;
+        }
+
+        #payment-list div:last-child, #address-list div:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .red-btn {
+            background-color: #dc3545;
+        }
+
+        .red-btn:hover {
+            background-color: #c82333;
+        }
+
+     
+
+    </style>
+</head>
+<header>
+    <div class="header-content">
+        <img src="imagenes/logo3.png" alt="Logo de Bazar Novias y XV" class="logo">
+        <h1>Bazar Novias y XV</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="PaginaMain.html">Inicio</a></li>
+                <li><a href="productosmain.html">Productos</a></li>
+                <li><a href="tablaTallasmain.html">Tabla de Tallas</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="header-actions">
+        <a href="carritomain.html" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+        <div class="DisenoMenuDespegable2">
+            <a id="Cuenta-btn"><i class="fas fa-user"></i></a>
+            <div id="menudespegable2" class="VentanaAbajOtros-content2">
+                <a id="usuario-link"></a>
+                <a href="Myaccount.html">Mi cuenta</a>
+                <a href="MisPedidos.html">Mis pedidos</a>
+                <a onclick="CerrarSesion()">Cerrar sesión</a>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <h2>Gestión de Métodos de Pago</h1>
+    <div id="payment-list">
+    </div>
+
+    <h2>Gestión de Direcciones</h1>
+    <div id="address-list">
+    </div>
+
+    <script src="Information.js"></script>
+    <script src="Myaccount.js"></script>
+</body>
+</html>
