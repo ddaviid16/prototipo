@@ -292,6 +292,7 @@ function procesarPago() {
 
     // Redirigir a la página de agradecimiento
     setTimeout(() => {
+        alert('Pago procesado correctamente. Redirigiendo...');
         window.location.href = "tenkiu.html";
     }, 1000);
 }
