@@ -130,34 +130,45 @@ clearCartButton.addEventListener("click", () => {
     updateCart();
 });
 
-// Finalizar compra
+// Finalizar compra (simulado xd)
 checkoutButton.addEventListener("click", () => {
     if (cart.length > 0) {
         const totalPrice = cart.reduce((sum, item) => {
             const price = parseFloat(item.price.replace('$', '').replace(',', ''));
             const quantity = parseInt(item.quantity, 10);
-            const product = galleryProducts.find(p => p.id === item.id);
-            cart.forEach(item => {
-                const product = galleryProducts.find(p => p.id === item.id);
-                if (product) {
-                    product.stock -= item.quantity; // Disminuir el stock del producto
-                }
-            });
+
             if (isNaN(price) || isNaN(quantity)) {
                 return sum;
             }
+
             return sum + price * quantity;
         }, 0);
+
+        // Reducir el stock de los productos en el carrito
+        cart.forEach(item => {
+            const product = galleryProducts.find(p => p.id === item.id);
+            if (product) {
+                product.stock -= item.quantity; // Disminuir el stock del producto
+                if (product.stock < 0) {
+                    product.stock = 0; // Evitar stocks negativos
+                }
+            }
+        });
+
         // Actualizar la base de datos de productos en el localStorage
         localStorage.setItem("galleryProducts", JSON.stringify(galleryProducts));
         localStorage.setItem("totalPrice", totalPrice);
+
         // Guardar la copia del carrito como productos comprados en orderDetails
+        const cartCopy = JSON.parse(JSON.stringify(cart));
         localStorage.setItem("DetallesPedidos", JSON.stringify(cartCopy));
+
         window.location.href = "Information.html";
     } else {
         alert("Tu carrito está vacío.");
     }
 });
+
 
 
 updateCart();
