@@ -89,50 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/*// Base de datos de productos para detalles
-const detailProducts = [
-    {
-        id: 1,
-        name: 'Vestido esmeralda de XV',
-        description: 'Este vestido esmeralda es perfecto para tu fiesta de XV...',
-        size: 'M',
-        color: 'Esmeralda',
-        category: 'XV',
-        price: 7000,
-        image: 'imagenes/producto1.jpg'
-    },
-    {
-        id: 2,
-        name: 'Vestido Moderno de XV',
-        description: 'Un vestido moderno y elegante para tu fiesta de XV...',
-        size: 'S',
-        color: 'Rojo',
-        category: 'XV',
-        price: 8000,
-        image: 'imagenes/producto3.jpg'
-    },
-    {
-        id: 3,
-        name: 'Vestido de Novia Moderno',
-        description: 'Un vestido blanco, elegante y moderno para novias...',
-        size: 'L',
-        color: 'Blanco',
-        category: 'Novias',
-        price: 10000,
-        image: 'imagenes/producto2.jpg'
-    },
-    {
-        id: 4,
-        name: 'Vestido de XV Oro',
-        description: 'Vestido de XV en color oro, perfecto para destacar...',
-        size: 'M',
-        color: 'Oro',
-        category: 'XV',
-        price: 9000,
-        image: 'imagenes/producto4.jpg'
-    
-    }
-];*/
 
 // Función para obtener parámetros de la URL
 function getQueryParameter(name) {
