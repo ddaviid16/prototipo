@@ -170,7 +170,7 @@ saveBtn.addEventListener('click', () => {
         const errorMsg = document.getElementById('error-msg');
 
         // Validar campos
-        const cardHolderRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
+        const cardHolderRegex = /^[a-zA-Z]+ [a-zA-Z]+[a-zA-Z]+$/;
         if (!cardHolderRegex.test(cardHolder)) {
             errorMsg.textContent = 'Nombre del titular de la tarjeta inválido. Debe contener al menos nombre y apellido.';
             return;
