@@ -21,7 +21,7 @@ function displayProducts() {
         const item = document.createElement("div");
         item.className = "product-item";
         item.innerHTML = `
-            <a href="detallemain.html?id=${product.id}">
+            <a href="detalle-producto.html?id=${product.id}">
                 <img src="${product.img}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>${product.category}</p>
