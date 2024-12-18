@@ -151,7 +151,7 @@ document.getElementById('add-payment-btn').addEventListener('click', () => {
     editingType = 'payment';
     modalTitle.textContent = 'Agregar nueva tarjeta';
     dynamicForm.innerHTML = `
-        <input type="text" id="card-holder" placeholder="Nombre del titular de la tarjeta" required pattern="^[a-zA-Z]+ [a-zA-Z]+$" oninput="formatCardHolder(this)">
+        <input type="text" id="card-holder" placeholder="Nombre del titular de la tarjeta" required pattern="^[a-zA-Z]+ [a-zA-Z]+[a-zA-Z]+$" oninput="formatCardHolder(this)">
         <input type="text" id="card-number" placeholder="Número de tarjeta" maxlength="19" required pattern="\d{19}" oninput="formatoTarjeta(this)"">
         <input type="text" id="expiry-date" placeholder="Fecha de vencimiento (MM/AA)" maxlength="5" required oninput="formatExpiryDate(this)">
         <input type="password" id="cvv" placeholder="CVV" maxlength="3" required oninput="formatCVV(this)">
