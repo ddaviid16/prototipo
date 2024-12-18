@@ -1,9 +1,9 @@
 // Base de datos de productos para la galería
 const galleryProducts = [
-    { id: 1, name: "Vestido esmeralda de XV", price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg", stock: 5 },
-    { id: 2, name: "Vestido Moderno de XV", price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
-    { id: 3, name: "Vestido de Novia Moderno", price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
-    { id: 4, name: "Vestido de XV Oro", price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
+    { id: 1, name: "Vestido esmeralda de XV", description: 'Este vestido esmeralda es perfecto para tu fiesta de XV...', price: "7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg", stock: 5 },
+    { id: 2, name: "Vestido Moderno de XV", description: 'Un vestido moderno y elegante para tu fiesta de XV...', price: "8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
+    { id: 3, name: "Vestido de Novia Moderno", description: 'Un vestido blanco, elegante y moderno para novias...', price: "10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
+    { id: 4, name: "Vestido de XV Oro", description: 'Vestido de XV en color oro, perfecto para destacar...', price: "9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
 ];
 
 let currentPage = 1;
@@ -87,53 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Base de datos de productos para detalles
-const detailProducts = [
-    {
-        id: 1,
-        name: 'Vestido esmeralda de XV',
-        description: 'Este vestido esmeralda es perfecto para tu fiesta de XV...',
-        size: 'M',
-        color: 'Esmeralda',
-        category: 'XV',
-        price: 7000,
-        image: 'imagenes/producto1.jpg',
-        stock: 5
-    },
-    {
-        id: 2,
-        name: 'Vestido Moderno de XV',
-        description: 'Un vestido moderno y elegante para tu fiesta de XV...',
-        size: 'S',
-        color: 'Rojo',
-        category: 'XV',
-        price: 8000,
-        image: 'imagenes/producto3.jpg',
-        stock: 5
-    },
-    {
-        id: 3,
-        name: 'Vestido de Novia Moderno',
-        description: 'Un vestido blanco, elegante y moderno para novias...',
-        size: 'L',
-        color: 'Blanco',
-        category: 'Novias',
-        price: 10000,
-        image: 'imagenes/producto2.jpg',
-        stock: 5
-    },
-    {
-        id: 4,
-        name: 'Vestido de XV Oro',
-        description: 'Vestido de XV en color oro, perfecto para destacar...',
-        size: 'M',
-        color: 'Oro',
-        category: 'XV',
-        price: 9000,
-        image: 'imagenes/producto4.jpg', 
-        stock: 5
-    }
-];
 
 // Función para obtener parámetros de la URL
 function getQueryParameter(name) {
@@ -149,11 +102,11 @@ function displayProductDetails() {
         return;
     }
 
-    const product = detailProducts.find(p => p.id === parseInt(productId));
+    const product = galleryProducts.find(p => p.id === parseInt(productId));
 
     if (product) {
         document.getElementById('product-detail').innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.img}" alt="${product.name}">
             <div class="product-info">
                 <h2>${product.name}</h2>
                 <p class="description">${product.description}</p>
