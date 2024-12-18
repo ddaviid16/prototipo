@@ -1,9 +1,9 @@
 // Base de datos de productos para la galería
 const galleryProducts = [
-    { id: 1, name: "Vestido esmeralda de XV", description: 'Este vestido esmeralda es perfecto para tu fiesta de XV...', price: "7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg", stock: 5 },
-    { id: 2, name: "Vestido Moderno de XV", description: 'Un vestido moderno y elegante para tu fiesta de XV...', price: "8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
-    { id: 3, name: "Vestido de Novia Moderno", description: 'Un vestido blanco, elegante y moderno para novias...', price: "10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
-    { id: 4, name: "Vestido de XV Oro", description: 'Vestido de XV en color oro, perfecto para destacar...', price: "9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
+    { id: 1, name: "Vestido esmeralda de XV", description: 'Este vestido esmeralda es perfecto para tu fiesta de XV...', price: "$7,000", category: "XV", size: "M", color: "Esmeralda", img: "imagenes/producto1.jpg", stock: 5 },
+    { id: 2, name: "Vestido Moderno de XV", description: 'Un vestido moderno y elegante para tu fiesta de XV...', price: "$8,000", category: "XV", size: "S", color: "Rojo", img: "imagenes/producto3.jpg", stock: 5 },
+    { id: 3, name: "Vestido de Novia Moderno", description: 'Un vestido blanco, elegante y moderno para novias...', price: "$10,000", category: "Novias", size: "L", color: "Blanco", img: "imagenes/producto2.jpg", stock: 5 },
+    { id: 4, name: "Vestido de XV Oro", description: 'Vestido de XV en color oro, perfecto para destacar...', price: "$9,000", category: "XV", size: "M", color: "Oro", img: "imagenes/producto4.jpg", stock: 5 }
 ];
 
 let currentPage = 1;
@@ -110,7 +110,7 @@ function displayProductDetails() {
             <div class="product-info">
                 <h2>${product.name}</h2>
                 <p class="description">${product.description}</p>
-                <p class="price">$${product.price}</p>
+                <p class="price">${product.price}</p>
                 <p>Talla: ${product.size}</p>
                 <p>Color: ${product.color}</p>
                 <p>Categoría: ${product.category}</p>
