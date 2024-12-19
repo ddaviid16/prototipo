@@ -128,8 +128,7 @@ checkoutButton.addEventListener("click", () => {
 
     if (!isLoggedIn) {
         alert("Debes iniciar sesión para comprar tus productos.");
-        // Opcional: redirigir al login
-        window.location.href = "Login.html"; // Cambia esta ruta si tu login tiene otro nombre
+        window.location.href = "Login.html";
         return; // Terminar la ejecución si no está logueado
     }}});
 

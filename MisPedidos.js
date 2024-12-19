@@ -14,9 +14,6 @@ const obtenerPedidos = async () => {
     });
 };
 
-
-
-// Función para mostrar los pedidos en "Mis Pedidos"
 // Función para mostrar los pedidos en "Mis Pedidos"
 const mostrarPedidos = async () => {
     try {

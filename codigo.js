@@ -78,7 +78,7 @@
       msg.textContent = "Código de seguridad válido. Redirigiendo...";
       setTimeout(() => {
         window.location.href = "NewPassword.html"; // Redirigir a la página de nueva contraseña después de un breve retraso
-      }, 1500); // Opcionalmente, un retraso de 1.5 segundos
+      }, 1500);
     } else {
       msg.textContent = "Código de seguridad incorrecto. Inténtalo de nuevo.";
     }
@@ -115,7 +115,7 @@
     const confirmacion = confirm("¿Estás seguro de que deseas cerrar sesión?");
     if (confirmacion) {
     setTimeout(() => {
-      window.location.href = "index.html"; // Corregido Location a location
+      window.location.href = "index.html";
     },1500);
     } else {
       alert("Cancelado. No se ha cerrado sesión");
