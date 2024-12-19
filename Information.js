@@ -172,7 +172,7 @@ saveBtn.addEventListener('click', () => {
         // Validar campos
         const cardHolderRegex = /^[a-zA-Z]+ [a-zA-Z]+ [a-zA-Z]+$/;
         if (!cardHolderRegex.test(cardHolder)) {
-            errorMsg.textContent = 'Nombre del titular de la tarjeta inválido. Debe contener al menos nombre y apellido.';
+            errorMsg.textContent = 'Nombre del titular de la tarjeta inválido. Debe contener nombre y dos apellidos.';
             return;
         }
         const cardNumberRegex = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
@@ -185,7 +185,7 @@ saveBtn.addEventListener('click', () => {
         }
 
         if (!cardHolderRegex.test(cardHolder)) {
-            errorMsg.textContent = 'Nombre del titular inválido. Debe contener al menos nombre y apellido.';
+            errorMsg.textContent = 'Nombre del titular inválido. Debe contener nombre y dos apellidos.';
             return;
         }
 
