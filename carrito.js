@@ -111,7 +111,7 @@ clearCartButton.addEventListener("click", () => {
     updateCart();
 });
 
-// Finalizar compra (simulado xd)
+// Finalizar compra
 checkoutButton.addEventListener("click", () => {
     if (cart.length > 0) {
         const totalPrice = cart.reduce((sum, item) => {
