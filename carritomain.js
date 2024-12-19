@@ -144,22 +144,8 @@ checkoutButton.addEventListener("click", () => {
             return sum + price * quantity;
         }, 0);
 
-        // Reducir el stock de los productos en el carrito
-        cart.forEach(item => {
-            const product = galleryProducts.find(p => p.id === item.id);
-            if (product) {
-                product.stock -= item.quantity; // Disminuir el stock del producto
-                if (product.stock < 0) {
-                    product.stock = 0; // Evitar stocks negativos
-                }
-            }
-        });
-
-        // Actualizar la base de datos de productos en el localStorage
-        localStorage.setItem("galleryProducts", JSON.stringify(galleryProducts));
+        // Guardar el precio total y los detalles del carrito
         localStorage.setItem("totalPrice", totalPrice);
-
-        // Guardar la copia del carrito como productos comprados en orderDetails
         const cartCopy = JSON.parse(JSON.stringify(cart));
         localStorage.setItem("DetallesPedidos", JSON.stringify(cartCopy));
 
@@ -168,6 +154,7 @@ checkoutButton.addEventListener("click", () => {
         alert("Tu carrito está vacío.");
     }
 });
+
 
 
 
