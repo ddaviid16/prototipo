@@ -268,6 +268,21 @@ function procesarPago() {
         return;
     }
 
+    // Reducir el stock de los productos en el carrito
+    const galleryProducts = JSON.parse(localStorage.getItem("galleryProducts")) || [];
+    cart.forEach(item => {
+        const product = galleryProducts.find(p => p.id === item.id);
+        if (product) {
+            product.stock -= item.quantity; // Disminuir el stock del producto
+            if (product.stock < 0) {
+                product.stock = 0; // Evitar stocks negativos
+            }
+        }
+    });
+
+    // Actualizar la base de datos de productos en el localStorage
+    localStorage.setItem("galleryProducts", JSON.stringify(galleryProducts));
+
     // Guardar los detalles del pedido en un objeto
     const orderDetails = {
         address: selectedAddressText,
